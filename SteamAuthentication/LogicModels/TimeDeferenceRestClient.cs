@@ -20,15 +20,15 @@ public class TimeDeferenceRestClient : SteamRestClient
                 await ExecutePostRequestWithoutHeadersAsync(Endpoints.TwoFactorTimeQuery, null, "steamid=0", cancellationToken);
 
             if (!response.IsSuccessful)
-                throw new RequestException("Response is not successful", response.StatusCode, response.Content, null);
+                throw new RequestException("响应不成功", response.StatusCode, response.Content, null);
 
             if (response.Content == null)
-                throw new RequestException("Response content is null", response.StatusCode, null, null);
+                throw new RequestException("响应内容为空", response.StatusCode, null, null);
 
             var timeQuery = JsonConvert.DeserializeObject<TimeQuery>(response.Content);
 
             if (timeQuery == null)
-                throw new RequestException("Deserialized time query value is null", response.StatusCode,
+                throw new RequestException("反序列化的时间查询值为空", response.StatusCode,
                     response.Content, null);
 
             return timeQuery.Response.ServerTime;
@@ -39,7 +39,7 @@ public class TimeDeferenceRestClient : SteamRestClient
         }
         catch (Exception e)
         {
-            throw new RequestException("Exception while getting time difference", null, null, e);
+            throw new RequestException("获取时差时出现异常", null, null, e);
         }
     }
 }

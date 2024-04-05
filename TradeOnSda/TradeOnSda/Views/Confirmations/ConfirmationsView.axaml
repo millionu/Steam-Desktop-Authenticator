@@ -50,7 +50,7 @@
                         Grid.Row="1">
                         <TextBlock
                             IsVisible="{Binding IsNoConfirmations}"
-                            Text="No confirmations"
+                            Text="没有确认"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             FontSize="14" FontWeight="SemiBold" />
@@ -62,12 +62,12 @@
                         <Button
                             Grid.Column="0"
                             Classes="Bottom"
-                            Content="Accept all"
+                            Content="全部接受"
                             Command="{Binding AcceptAllCommand}" />
                         <Button
                             Grid.Column="1"
                             Classes="Bottom"
-                            Content="Deny all"
+                            Content="全部拒绝"
                             Command="{Binding DenyAllCommand}" />
                     </Grid>
                 </Grid>

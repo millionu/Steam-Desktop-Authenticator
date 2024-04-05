@@ -7,6 +7,6 @@ public class MacFileSystemAdapter : FileSystemAdapterBase
 {
     protected override string GetBasePath()
     {
-        return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "TradeOn SDA");
+        return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "SDA");
     }
 }

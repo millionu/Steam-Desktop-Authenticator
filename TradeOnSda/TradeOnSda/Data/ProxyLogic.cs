@@ -31,7 +31,7 @@ public static class ProxyLogic
                 BypassProxyOnLocal = false,
                 Credentials = new NetworkCredential(tokens[2], tokens[3]),
             },
-            _ => throw new Exception("Invalid proxy format")
+            _ => throw new Exception("代理格式错误")
         };
     }
 }

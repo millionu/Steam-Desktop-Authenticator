@@ -191,11 +191,11 @@ public class AccountViewModel : ViewModelBase
             }
             catch (RequestException e)
             {
-                await NotificationsMessageWindow.ShowWindow($"Cannot load confirmations. {e}", OwnerWindow);
+                await NotificationsMessageWindow.ShowWindow($"无法加载确认。 {e}", OwnerWindow);
             }
             catch (Exception e)
             {
-                await NotificationsMessageWindow.ShowWindow($"Cannot load confirmations, message: {e.Message}", OwnerWindow);
+                await NotificationsMessageWindow.ShowWindow($"无法加载确认，消息: {e.Message}", OwnerWindow);
             }
         });
 
@@ -222,13 +222,13 @@ public class AccountViewModel : ViewModelBase
         {
             if (!int.TryParse(AutoConfirmDelayText, out var delay))
             {
-                await NotificationsMessageWindow.ShowWindow("Error parse value", OwnerWindow);
+                await NotificationsMessageWindow.ShowWindow("分析值时出错", OwnerWindow);
                 return;
             }
 
             if (delay < 1)
             {
-                await NotificationsMessageWindow.ShowWindow("Delay must be positive", OwnerWindow);
+                await NotificationsMessageWindow.ShowWindow("延迟必须为正", OwnerWindow);
                 return;
             }
 
@@ -336,11 +336,11 @@ public class DefaultAccountViewCommandStrategy : IAccountViewCommandStrategy
         }
         catch (RequestException e)
         {
-            await NotificationsMessageWindow.ShowWindow($"Cannot load confirmations. {e}", _accountViewModel.OwnerWindow);
+            await NotificationsMessageWindow.ShowWindow($"无法加载确认。 {e}", _accountViewModel.OwnerWindow);
         }
         catch (Exception)
         {
-            await NotificationsMessageWindow.ShowWindow("Cannot load confirmations", _accountViewModel.OwnerWindow);
+            await NotificationsMessageWindow.ShowWindow("无法加载确认", _accountViewModel.OwnerWindow);
         }
     }
 
@@ -387,7 +387,7 @@ public class EditProxyAccountViewCommandStrategy : ViewModelBase, IAccountViewCo
             }
             catch (Exception)
             {
-                await NotificationsMessageWindow.ShowWindow("Proxy string is invalid", _accountViewModel.OwnerWindow);
+                await NotificationsMessageWindow.ShowWindow("代理字符串无效", _accountViewModel.OwnerWindow);
                 return;
             }
 

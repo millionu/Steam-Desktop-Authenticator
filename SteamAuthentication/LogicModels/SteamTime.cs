@@ -17,7 +17,7 @@ public class SteamTime : ISteamTime
     public long GetCurrentSteamTime()
     {
         if (_timeDifference == null)
-            throw new Exception("SteamTime is not synchronized");
+            throw new Exception("Steam时间不同步");
 
         return GetCurrentClientTime() + _timeDifference.Value;
     }

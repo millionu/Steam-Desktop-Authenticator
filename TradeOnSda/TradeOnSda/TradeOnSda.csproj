@@ -34,7 +34,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <UpToDateCheckInput Remove="Assets\logo.ico" />
-      <UpToDateCheckInput Remove="Assets\logo.png" />
+      <UpToDateCheckInput Remove="Assets\logo_new.ico" />
+      <UpToDateCheckInput Remove="Assets\logo_new.png" />
     </ItemGroup>
 </Project>

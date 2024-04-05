@@ -36,7 +36,7 @@
             <StackPanel
                 Grid.Row="0"
                 Orientation="Vertical">
-                <TextBlock Text="Confirm the phone number linking in the email" />
+                <TextBlock Text="确认电子邮件中链接的电话号码" />
                 <TextBlock>
                     <Run Text="Email: " />
                     <Run Text="{Binding Email}" />
@@ -45,7 +45,7 @@
             <Button
                 Grid.Row="1"
                 Margin="2"
-                Content="Done"
+                Content="完成"
                 VerticalAlignment="Stretch"
                 HorizontalAlignment="Stretch"
                 HorizontalContentAlignment="Center"

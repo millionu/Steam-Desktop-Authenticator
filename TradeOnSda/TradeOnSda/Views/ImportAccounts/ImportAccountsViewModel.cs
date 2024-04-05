@@ -74,7 +74,7 @@ public class ImportAccountsViewModel : ViewModelBase
         {
             if (string.IsNullOrWhiteSpace(Password))
             {
-                await NotificationsMessageWindow.ShowWindow("Password is empty", _ownerWindow);
+                await NotificationsMessageWindow.ShowWindow("密码为空", _ownerWindow);
                 return;
             }
 
@@ -86,7 +86,7 @@ public class ImportAccountsViewModel : ViewModelBase
             }
             catch (Exception)
             {
-                await NotificationsMessageWindow.ShowWindow("Cannot parse proxy string", _ownerWindow);
+                await NotificationsMessageWindow.ShowWindow("无法分析代理字符串", _ownerWindow);
                 return;
             }
 
@@ -121,7 +121,7 @@ public class ImportAccountsViewModel : ViewModelBase
 
             if (loginAgainResult != null)
             {
-                await NotificationsMessageWindow.ShowWindow($"Error login in steam. Message: {loginAgainResult}",
+                await NotificationsMessageWindow.ShowWindow($"在steam中登录时出错。消息: {loginAgainResult}",
                     _ownerWindow);
                 return false;
             }
@@ -133,7 +133,7 @@ public class ImportAccountsViewModel : ViewModelBase
         catch (RequestException e)
         {
             await NotificationsMessageWindow.ShowWindow(
-                $"{e.Message}, statusCode: {e.HttpStatusCode}, Content: {e.Content}", _ownerWindow);
+                $"{e.Message}, 状态代码: {e.HttpStatusCode}, 内容: {e.Content}", _ownerWindow);
             return false;
         }
         catch (Exception e)

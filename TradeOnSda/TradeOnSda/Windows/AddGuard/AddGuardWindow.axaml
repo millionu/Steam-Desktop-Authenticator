@@ -13,7 +13,7 @@
         ExtendClientAreaToDecorationsHint="True"
         d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TradeOnSda.Windows.AddGuard.AddGuardWindow"
-        Title="AddGuardWindow">
+        Title="添加令牌窗口">
     <Design.DataContext>
         <addGuard:AddGuardWindowViewModel />
     </Design.DataContext>

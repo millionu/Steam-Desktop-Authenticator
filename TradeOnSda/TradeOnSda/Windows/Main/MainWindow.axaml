@@ -6,7 +6,7 @@
         xmlns:main1="clr-namespace:TradeOnSda.Windows.Main"
         xmlns:controls="https://github.com/avaloniaui"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        Icon="/Assets/logo.ico"
+        Icon="/Assets/logo_new.ico"
         Width="400"
         Height="650"
         CanResize="True"
@@ -48,7 +48,7 @@
                     IsVisible="{Binding !IsMac}"
                     Margin="5, 5, 5, 0"
                     Source="{Binding Logo}" />
-                <TextBlock Text="TradeOn SDA"
+                <TextBlock Text="SDA - 密炼网络汉化版"
                            Margin="10, 0, 10, 0"
                            VerticalAlignment="Center" />
             </StackPanel>

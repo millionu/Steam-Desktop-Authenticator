@@ -13,13 +13,13 @@
             <ControlTemplate>
                 <StackPanel Orientation="Vertical"
                             Margin="0, 20, 0, 0">
-                    <TextBlock Classes="Text" Text="Enter a password for Steam account" />
+                    <TextBlock Classes="Text" Text="输入 Steam 账号密码" />
                     <TextBlock Classes="Text">
-                        <Run Text="MaFileName: " />
+                        <Run Text="MaFile 文件名: " />
                         <Run Text="{Binding MaFileName}" />
                     </TextBlock>
                     <TextBlock Classes="Text">
-                        <Run Text="SteamId: " />
+                        <Run Text="SteamID: " />
                         <Run Text="{Binding SteamId}" />
                     </TextBlock>
                     <Grid Height="10">
@@ -30,28 +30,28 @@
                             Background="{DynamicResource BackgroundAccent}" />
                     </Grid>
                     <TextBlock Classes="Text">
-                        <Run Text="Steam login: " />
+                        <Run Text="Steam 账号: " />
                         <Run Text="{Binding Login}" />
                     </TextBlock>
                     <TextBox
-                        Watermark="Password"
+                        Watermark="密码"
                         Classes="Text"
                         Text="{Binding Password}" />
                     <TextBox
                         Classes="Text"
-                        Watermark="Proxy (ip:port:login:password, http or https) not required"
+                        Watermark="代理 (ip:port:login:password）支持 http 或 https"
                         Text="{Binding ProxyString}" />
                     <CheckBox
                         Margin="10, 0, 0, 0"
                         IsChecked="{Binding AutoConfirm}">
-                        <TextBlock Text="Auto-confirm" />
+                        <TextBlock Text="自动确认" />
                     </CheckBox>
                     <Button
                         FontWeight="SemiBold"
                         HorizontalContentAlignment="Center"
                         HorizontalAlignment="Stretch"
                         Margin="10, 3, 10, 0"
-                        Command="{Binding CommitPassword}" Content="Try login" />
+                        Command="{Binding CommitPassword}" Content="尝试登录" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>

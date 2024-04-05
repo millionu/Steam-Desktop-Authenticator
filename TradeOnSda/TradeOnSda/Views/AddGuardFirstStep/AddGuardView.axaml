@@ -21,13 +21,13 @@
                                 Grid.Row="0"
                                 Orientation="Vertical">
                                 <TextBox
-                                    Watermark="Login"
+                                    Watermark="账号"
                                     Text="{Binding Login}" />
                                 <TextBox
-                                    Watermark="Password"
+                                    Watermark="密码"
                                     Text="{Binding Password}" />
                                 <TextBox
-                                    Watermark="Proxy (ip:port:login:password, http or https) not required"
+                                    Watermark="代理 (ip:port:login:password）支持 http 或 https"
                                     Text="{Binding ProxyString}" />
                             </StackPanel>
                             <Grid
@@ -39,7 +39,7 @@
                                 Classes="Footer"
                                 IsEnabled="{Binding IsEnabledLoginButton}"
                                 Command="{Binding TryLoginCommand}"
-                                Content="Try login" />
+                                Content="尝试登录" />
                         </Grid>
 
                         <Grid
@@ -50,7 +50,7 @@
                                 Orientation="Vertical">
                                 <TextBlock
                                     Classes="Text">
-                                    <Run Text="Account name: " />
+                                    <Run Text="账号: " />
                                     <Run Text="{Binding AccountName}" />
                                 </TextBlock>
                                 <TextBlock
@@ -61,7 +61,7 @@
                                 <TextBlock
                                     Classes="Text"
                                     IsVisible="{Binding IsSecondTry}">
-                                    <Run Text="Phone number: " />
+                                    <Run Text="手机号码: " />
                                     <Run Text="{Binding LastPhoneNumber}" />
                                 </TextBlock>
                             </StackPanel>
@@ -74,7 +74,7 @@
                                 Classes="Footer"
                                 Classes.Accent="{Binding IsSecondTry}"
                                 Command="{Binding AddGuardCommand}"
-                                Content="Add guard" />
+                                Content="添加令牌" />
                         </Grid>
 
                         <Grid
@@ -85,9 +85,9 @@
                                 Orientation="Vertical">
                                 <TextBlock
                                     Classes="Text"
-                                    Text="Enter SMS code" />
+                                    Text="输入验证码" />
                                 <TextBox
-                                    Watermark="SMS code"
+                                    Watermark="验证码"
                                     Text="{Binding SmsCode}">
                                 </TextBox>
                             </StackPanel>
@@ -99,7 +99,7 @@
                                 Grid.Row="2"
                                 Classes="Footer"
                                 Command="{Binding FinalizeCommand}"
-                                Content="Check code" />
+                                Content="检查验证码" />
                         </Grid>
                     </Grid>
 
@@ -127,7 +127,7 @@
                             Grid.Row="2"
                             Classes="Footer"
                             Command="{Binding AskStepCommand}"
-                            Content="Confirm" />
+                            Content="确认" />
                     </Grid>
                 </Grid>
             </ControlTemplate>

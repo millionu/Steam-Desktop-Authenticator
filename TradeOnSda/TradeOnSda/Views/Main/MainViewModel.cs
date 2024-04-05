@@ -165,7 +165,7 @@ public class MainViewModel : ViewModelBase
                             Patterns = new[] { "*.mafile" }
                         }
                     },
-                    Title = "Select mafiles",
+                    Title = "选择 mafile 文件",
                 });
 
             foreach (var file in result)
@@ -185,7 +185,7 @@ public class MainViewModel : ViewModelBase
                 }
                 catch (Exception e)
                 {
-                    await NotificationsMessageWindow.ShowWindow($"Invalid mafile. Error: {e.Message}", _ownerWindow);
+                    await NotificationsMessageWindow.ShowWindow($"无效的 maFile 文件。错误: {e.Message}", _ownerWindow);
                 }
             }
         });
@@ -208,7 +208,7 @@ public class MainViewModel : ViewModelBase
 
                 if (result != null)
                 {
-                    await NotificationsMessageWindow.ShowWindow($"Error login in steam, message: {result}", _ownerWindow);
+                    await NotificationsMessageWindow.ShowWindow($"登录 Steam 时出错，消息: {result}", _ownerWindow);
                     return;
                 }
 
@@ -224,11 +224,11 @@ public class MainViewModel : ViewModelBase
             catch (RequestException e)
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Error login in steam, message: {e.Message}, statusCode: {e.HttpStatusCode.ToString()}", _ownerWindow);
+                    $"登录 Steam 时出错，消息: {e.Message}, 状态代码: {e.HttpStatusCode.ToString()}", _ownerWindow);
             }
             catch (Exception e)
             {
-                await NotificationsMessageWindow.ShowWindow($"Error login in steam, message: {e.Message}", _ownerWindow);
+                await NotificationsMessageWindow.ShowWindow($"登录 Steam 时出错，消息: {e.Message}", _ownerWindow);
             }
         });
 
@@ -250,12 +250,12 @@ public class MainViewModel : ViewModelBase
 
         AboutUsCommand = ReactiveCommand.Create(() =>
         {
-            Process.Start(new ProcessStartInfo() { FileName = "https://linktr.ee/tradeon", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo() { FileName = "https://lipinkaka.com", UseShellExecute = true });
         });
 
         VersionCommand = ReactiveCommand.Create(() =>
         {
-            Process.Start(new ProcessStartInfo() { FileName = "https://github.com/TradeOnSolutions/Steam-Desktop-Authenticator/releases", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo() { FileName = "https://github.com/MillionNet/Steam-Desktop-Authenticator/releases", UseShellExecute = true });
         });
     }
 
@@ -283,6 +283,6 @@ public class MainViewModel : ViewModelBase
         var major = version.Major;
         var minor = version.Minor;
 
-        return $"v. {major}.{minor}";
+        return $"支持macOS和Windows V. {major}.{minor}";
     }
 }

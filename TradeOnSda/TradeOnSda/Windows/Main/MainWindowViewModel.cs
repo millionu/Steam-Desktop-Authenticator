@@ -21,7 +21,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         MainViewModel = new MainViewModel(ownerWindow, sdaManager);
 
-        var logoSteam = AssetLoader.Open(new Uri("avares://TradeOnSda/Assets/logo.png"));
+        var logoSteam = AssetLoader.Open(new Uri("avares://TradeOnSda/Assets/logo_new.png"));
         Logo = new Bitmap(logoSteam);
 
         IsMac = OperatingSystem.IsMacOS();

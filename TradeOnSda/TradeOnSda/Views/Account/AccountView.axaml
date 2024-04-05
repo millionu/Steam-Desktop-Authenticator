@@ -28,7 +28,7 @@
                                        Margin="10, 0, 0, 0"
                                        FontWeight="SemiBold" />
                             <TextBox
-                                Watermark="Proxy"
+                                Watermark="代理"
                                 VerticalContentAlignment="Center"
                                 IsVisible="{Binding SelectedAccountViewCommandStrategy.IsVisibleTextBox}"
                                 Text="{Binding SelectedAccountViewCommandStrategy.TextBoxText}"
@@ -85,7 +85,7 @@
                                                 Margin="5, 0, 0, 0"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
-                                                Text="Auto-confirm (sec): " />
+                                                Text="自动确认 (秒): " />
                                         </Grid>
                                         <TextBox
                                             VerticalContentAlignment="Center"

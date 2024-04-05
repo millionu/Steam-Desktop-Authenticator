@@ -52,7 +52,7 @@ public class SteamGuardAccount
         }
         catch (Exception e)
         {
-            _logger.LogError("Exception while get steamTime: {exception}", e.ToJson());
+            _logger.LogError("获取 Steam 时间时出现异常: {exception}", e.ToJson());
             throw;
         }
 
@@ -60,16 +60,16 @@ public class SteamGuardAccount
         {
             var code = SteamGuardCodeGenerating.GenerateSteamGuardCode(MaFile.SharedSecret, timeStamp, _logger);
 
-            _logger.LogDebug("Steam guard got, code: {code}", code);
+            _logger.LogDebug("获取 Steam 令牌, 代码: {code}", code);
 
             if (code == null)
-                throw new Exception("Steam guard code is null");
+                throw new Exception("Steam 令牌为空");
 
             return code;
         }
         catch (Exception e)
         {
-            _logger.LogError("Exception while generating steam guard code: {exception}", e);
+            _logger.LogError("生成 Steam 令牌时出现异常， 代码: {exception}", e);
             throw;
         }
     }
@@ -89,11 +89,11 @@ public class SteamGuardAccount
             "conf",
             _logger);
 
-        _logger.LogDebug("Created url: {url}", url);
+        _logger.LogDebug("已经创建 URL: {url}", url);
 
         var cookies = MaFile.Session.CreateCookies();
 
-        _logger.LogDebug("Created cookies: {cookies}", cookies.ToJson());
+        _logger.LogDebug("已经创建 cookies: {cookies}", cookies.ToJson());
 
         RestResponse response;
 
@@ -107,17 +107,17 @@ public class SteamGuardAccount
         }
         catch (Exception e)
         {
-            _logger.LogError("Exception while executing request, exception: {exception}", e.ToJson());
-            throw new RequestException("Exception while executing request", null, null, e);
+            _logger.LogError("执行请求时出现异常，异常: {exception}", e.ToJson());
+            throw new RequestException("执行请求时出现异常", null, null, e);
         }
 
         _logger.LogRestResponse(response);
 
         if (!response.IsSuccessful)
-            throw new RequestException("Response is not successful", response.StatusCode, response.Content, null);
+            throw new RequestException("响应不成功", response.StatusCode, response.Content, null);
 
         if (response.RawBytes == null)
-            throw new RequestException("RawBytes is null", response.StatusCode, null, null);
+            throw new RequestException("RawBytes为空", response.StatusCode, null, null);
 
         var content = await GZipDecoding.DecodeGZipAsync(response.RawBytes, _logger, cancellationToken);
 
@@ -126,27 +126,27 @@ public class SteamGuardAccount
             var confirmationsResponse = JsonConvert.DeserializeObject<SdaConfirmationsResponse>(content);
 
             if (confirmationsResponse == null)
-                throw new RequestException("Response parse result is null or not success", response.StatusCode, content,
+                throw new RequestException("响应分析结果为空或不成功", response.StatusCode, content,
                     null);
 
             if (!confirmationsResponse.Success)
             {
                 if (confirmationsResponse.IsNeedAuth)
-                    throw new RequestException("Response result is unauthorized", HttpStatusCode.Unauthorized, content,
+                    throw new RequestException("响应结果未经授权", HttpStatusCode.Unauthorized, content,
                         null);
 
-                throw new RequestException("Response parse result is not success", response.StatusCode, content,
+                throw new RequestException("响应解析结果不成功", response.StatusCode, content,
                     null);
             }
 
             if (confirmationsResponse.Confirmations == null)
-                throw new RequestException("Confirmations not found", response.StatusCode, content, null);
+                throw new RequestException("未找到确认", response.StatusCode, content, null);
 
             return confirmationsResponse.Confirmations;
         }
         catch (Exception e)
         {
-            _logger.LogError("Error parse confirmations, exception: {exception}", e.ToJson());
+            _logger.LogError("分析确认时出错，异常: {exception}", e.ToJson());
             throw;
         }
     }
@@ -366,7 +366,7 @@ public class SteamGuardAccount
         }
         catch (Exception)
         {
-            return "unknown";
+            return "未知的";
         }
     }
 
@@ -468,7 +468,7 @@ public class SteamGuardAccount
 
             MaFile = newMaFile;
 
-            _logger.LogDebug("MaFile data rewrited");
+            _logger.LogDebug("MaFile 数据被重写");
 
             return null;
         }
@@ -486,7 +486,7 @@ public class SteamGuardAccount
         var steamMaFile = JsonConvert.DeserializeObject<SteamMaFile>(maFileContent);
 
         if (steamMaFile == null)
-            throw new DeserializeException("Error deserialize SteamMaFile, result is null");
+            throw new DeserializeException("反序列化 Steam MaFile 时出错，结果为空");
 
         return new SteamGuardAccount(steamMaFile, steamRestClient, steamTime, logger);
     }

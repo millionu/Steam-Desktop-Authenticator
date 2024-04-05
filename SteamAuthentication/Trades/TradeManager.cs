@@ -24,7 +24,7 @@ public class TradeManager : IDisposable
     public void Start()
     {
         if (_cancellationTokenSource != null)
-            throw new InvalidOperationException("TradeManager is already started");
+            throw new InvalidOperationException("TradeManager ÒÑÆô¶¯");
 
         _cancellationTokenSource = new CancellationTokenSource();
 

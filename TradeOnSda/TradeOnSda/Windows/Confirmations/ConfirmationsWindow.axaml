@@ -6,7 +6,7 @@
         xmlns:confirmations1="clr-namespace:TradeOnSda.Windows.Confirmations"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TradeOnSda.Windows.Confirmations.ConfirmationsWindow"
-        Title="Confirmations"
+        Title="确认"
         TransparencyLevelHint="AcrylicBlur"
         Width="400"
         Height="650"

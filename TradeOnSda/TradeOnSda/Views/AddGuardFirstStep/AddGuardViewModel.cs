@@ -198,13 +198,13 @@ public class AddGuardViewModel : ViewModelBase
 
             if (string.IsNullOrWhiteSpace(Login))
             {
-                await NotificationsMessageWindow.ShowWindow("Login is empty", ownerWindow);
+                await NotificationsMessageWindow.ShowWindow("登录名为空", ownerWindow);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Password))
             {
-                await NotificationsMessageWindow.ShowWindow("Password is empty", ownerWindow);
+                await NotificationsMessageWindow.ShowWindow("密码为空", ownerWindow);
                 return;
             }
 
@@ -235,7 +235,7 @@ public class AddGuardViewModel : ViewModelBase
                 {
                     await Dispatcher.UIThread.InvokeAsync(async () =>
                     {
-                        await NotificationsMessageWindow.ShowWindow($"This steam account is not supported",
+                        await NotificationsMessageWindow.ShowWindow($"不支持此 Steam 帐户",
                             ownerWindow);
                     });
                 }
@@ -247,7 +247,7 @@ public class AddGuardViewModel : ViewModelBase
                 {
                     await Dispatcher.UIThread.InvokeAsync(async () =>
                     {
-                        await NotificationsMessageWindow.ShowWindow($"Error while linking guard. Message: {e.Message}",
+                        await NotificationsMessageWindow.ShowWindow($"链接令牌时出错。消息: {e.Message}",
                             ownerWindow);
                     });
                 }
@@ -262,7 +262,7 @@ public class AddGuardViewModel : ViewModelBase
         {
             if (string.IsNullOrWhiteSpace(AskStepAnswer))
             {
-                await NotificationsMessageWindow.ShowWindow("Code is empty",
+                await NotificationsMessageWindow.ShowWindow("代码为空",
                     ownerWindow);
                 return;
             }
@@ -303,14 +303,14 @@ public class AddGuardViewModel : ViewModelBase
                     catch (RequestException e)
                     {
                         await NotificationsMessageWindow.ShowWindow(
-                            $"Error while confirm phone number, code: {e.HttpStatusCode}, message: {e.Content}",
+                            $"确认电话号码时出错, 代码: {e.HttpStatusCode}, 消息: {e.Content}",
                             ownerWindow);
                         return;
                     }
                     catch (Exception e)
                     {
                         await NotificationsMessageWindow.ShowWindow(
-                            $"Error while confirm phone number, message: {e.Message}", ownerWindow);
+                            $"确认电话号码时出错, 消息: {e.Message}", ownerWindow);
                         return;
                     }
                     
@@ -322,13 +322,13 @@ public class AddGuardViewModel : ViewModelBase
             catch (RequestException e)
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Error while adding guard, code: {e.HttpStatusCode}, message: {e.Content}",
+                    $"添加令牌时出错, 代码: {e.HttpStatusCode}, 消息: {e.Content}",
                     ownerWindow);
             }
             catch (Exception e)
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Error while adding guard, message: {e.Message}", ownerWindow);
+                    $"添加令牌时出错, 消息: {e.Message}", ownerWindow);
             }
         });
 
@@ -337,7 +337,7 @@ public class AddGuardViewModel : ViewModelBase
             if (string.IsNullOrWhiteSpace(SmsCode))
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Please, enter the SMS code",
+                    $"请输入短信代码",
                     ownerWindow);
                 return;
             }
@@ -349,13 +349,13 @@ public class AddGuardViewModel : ViewModelBase
             catch (RequestException e)
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Error while finializing guard, message: {e.Content}",
+                    $"完成令牌时出错, 消息: {e.Content}",
                     ownerWindow);
             }
             catch (Exception e)
             {
                 await NotificationsMessageWindow.ShowWindow(
-                    $"Error while finializing guard, message: {e.Message}", ownerWindow);
+                    $"完成令牌时出错, 消息: {e.Message}", ownerWindow);
             }
 
             var steamGuardAccount = new SteamGuardAccount(_maFile!, new SteamRestClient(_proxy), sdaManager.GlobalSteamTime,

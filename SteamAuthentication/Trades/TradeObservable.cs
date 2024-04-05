@@ -20,7 +20,7 @@ public class TradeObservable : IObservable<TradeEvent>
     public IDisposable Subscribe(IObserver<TradeEvent> observer)
     {
         if (_observers.Contains(observer))
-            throw new InvalidOperationException("Observer is already exists");
+            throw new InvalidOperationException("Observer ÒÑ´æÔÚ");
         
         _observers.Add(observer);
             

@@ -32,11 +32,11 @@
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon
-                Icon="/Assets/trayIcon.ico" ToolTipText="TradeOnSDA">
+                Icon="/Assets/trayIcon_new.ico" ToolTipText="SDA - 密炼网络汉化版">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Header="Open" ToggleType="None" Command="{Binding OpenCommand}" />
-                        <NativeMenuItem Header="Exit app" ToggleType="None" Command="{Binding ExitCommand}" />
+                        <NativeMenuItem Header="打开 SDA" ToggleType="None" Command="{Binding OpenCommand}" />
+                        <NativeMenuItem Header="退出 SDA" ToggleType="None" Command="{Binding ExitCommand}" />
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>

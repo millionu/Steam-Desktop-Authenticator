@@ -25,9 +25,9 @@
                     Margin="0, 20, 0, 0"
                     RowDefinitions="40, 50, *, 30">
                     <Grid Grid.Row="0" ColumnDefinitions="*, *, *">
-                        <Button Grid.Column="0" Classes="TopButton" Content="Import account"
+                        <Button Grid.Column="0" Classes="TopButton" Content="导入账号"
                                 Command="{Binding ImportAccountsCommand}" />
-                        <Button Grid.Column="1" Classes="TopButton" Content="Add guard"
+                        <Button Grid.Column="1" Classes="TopButton" Content="添加账号"
                                 Command="{Binding AddGuardCommand}" />
                         <Button Grid.Column="2" Classes="TopButton"
                                 Classes.Default="{Binding !IsReLoginSuccess}"
@@ -74,7 +74,7 @@
                                 Grid.Row="0">
                                 <TextBox
                                     VerticalContentAlignment="Center"
-                                    Watermark="Search"
+                                    Watermark="搜索"
                                     Margin="1, 2, 1, 1"
                                     Text="{Binding SearchText}" />
                             </Grid>
@@ -92,7 +92,7 @@
                             Classes="Url"
                             HorizontalAlignment="Left"
                             Margin="10, 2, 0, 2"
-                            Content="About TradeOn"
+                            Content="关于"
                             Command="{Binding AboutUsCommand}" />
                         <Button
                             Classes="Url"
@@ -119,11 +119,11 @@
     </Style>
 
     <Style Selector="Button.Default">
-        <Setter Property="Content" Value="Re-login" />
+        <Setter Property="Content" Value="账号重连" />
     </Style>
 
     <Style Selector="Button.Success">
         <Setter Property="Foreground" Value="#40ee99" />
-        <Setter Property="Content" Value="Success" />
+        <Setter Property="Content" Value="成功" />
     </Style>
 </Styles>

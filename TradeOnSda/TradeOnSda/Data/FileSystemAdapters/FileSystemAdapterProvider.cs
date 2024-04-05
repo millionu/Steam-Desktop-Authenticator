@@ -20,7 +20,7 @@ public class FileSystemAdapterProvider
             return;
         }
 
-        throw new NotSupportedException("Supported only mac or windows");
+        throw new NotSupportedException("仅支持 macOS 或 Windows");
     }
 
     public IFileSystemAdapter GetAdapter()
