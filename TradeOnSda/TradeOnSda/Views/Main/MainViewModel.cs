@@ -250,12 +250,12 @@ public class MainViewModel : ViewModelBase
 
         AboutUsCommand = ReactiveCommand.Create(() =>
         {
-            Process.Start(new ProcessStartInfo() { FileName = "https://lipinkaka.com", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo() { FileName = "https://millionu.com", UseShellExecute = true });
         });
 
         VersionCommand = ReactiveCommand.Create(() =>
         {
-            Process.Start(new ProcessStartInfo() { FileName = "https://github.com/MillionNet/Steam-Desktop-Authenticator/releases", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo() { FileName = "https://github.com/millionu/Steam-Desktop-Authenticator/releases", UseShellExecute = true });
         });
     }
 
